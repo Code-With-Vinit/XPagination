@@ -7,6 +7,8 @@ const Endpoint="https://geektrust.s3-ap-southeast-1.amazonaws.com/adminui-proble
 
 function App() {
 
+  const [data,setData]=useState([]);
+
   useEffect(()=>
     {
       async function fetchDetails(){
@@ -35,6 +37,14 @@ function App() {
           <th>EMAIL</th>
           <th>ROLE</th>
         </thead>
+
+        <tbody>
+          {data.map((d,i)=>(
+            <tr key={i}>
+                <td>{d}</td>
+            </tr>
+          ))}
+        </tbody>
       </table>
     </>
   )
