@@ -15,7 +15,9 @@ function App() {
       try{
         const response=await fetch(Endpoint);
         const data=await response.json();
+        setData(data);
         console.log(data);
+        console.log(data.id);
       }
       catch(e)
       {
@@ -32,16 +34,21 @@ function App() {
 
       <table>
         <thead>
-          <th>ID</th>
-          <th>NAME</th>
-          <th>EMAIL</th>
-          <th>ROLE</th>
+          <tr>
+            <th>ID</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>ROLE</th>
+          </tr>
         </thead>
 
         <tbody>
           {data.map((d,i)=>(
             <tr key={i}>
-                <td>{d}</td>
+                <td>{d.id}</td>
+                <td>{d.name}</td>
+                <td>{d.email}</td>
+                <td>{d.role}</td>
             </tr>
           ))}
         </tbody>
